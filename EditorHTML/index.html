@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editor HTML</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="editor-container">
+        <div class="toolbar">
+            <button onclick="newFile()">Nuevo</button>
+            <button onclick="document.getElementById('fileInput').click()">Abrir</button>
+            <button onclick="saveFile()">Guardar</button>
+            <button onclick="saveAsFile()">Guardar Como</button>
+            <button onclick="printFile()">Imprimir</button>
+            <button onclick="findText()">Buscar</button>
+            <button onclick="replaceText()">Reemplazar</button>
+            <button onclick="goToLine()">Ir a</button>
+            <button onclick="checkUnclosedTags()">Verificar etiquetas no cerradas</button>
+        </div>
+        <div class="editor-wrapper">
+            <div id="lineNumbers" class="line-numbers"></div>
+            <textarea id="editor" oninput="updateEditor()" onscroll="syncScroll()"></textarea>
+            <pre id="highlighting"></pre>
+        </div>
+    </div>
+    <input type="file" id="fileInput" style="display: none;" onchange="openFile(event)">
+    <script src="scripts.js"></script>
+</body>
+</html>
+
